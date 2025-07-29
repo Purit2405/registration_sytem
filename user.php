@@ -23,13 +23,15 @@ if (!isset($_SESSION['user_login'])) {
         <?php
         if (isset($_SESSION['user_login'])) {
             $user_id = $_SESSION['user_login'];
-            $stmt = $conn->query("SELECT * FROM user WHERE id = $user_id");
+            $stmt = $conn->prepare("SELECT * FROM users WHERE id = :id");
+            $stmt->bindParam(":id", $user_id);
             $stmt->execute();
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
         }
         ?>
         
-            <h3 class="mt-4">Welcome, <?php echo $row['firstname'] . '' . $row['lastname']?></h3>
+<h3 class="mt-4">Welcome, <?php echo $row['firstname'] . '' . $row['lastname']?></h3>
             <a href="logout.php" class="btn btn-danger">Logout</a>
     </div>
 </body>
