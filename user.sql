@@ -9,4 +9,4 @@ CREATE TABLE users (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-เอาไปใส่ ใน ฐานข้อมูล phpmyadmin
+-- เอาไปใส่ ใน ฐานข้อมูล phpmyadmin
